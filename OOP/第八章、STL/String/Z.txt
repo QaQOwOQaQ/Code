@@ -1,0 +1,52 @@
+不可以用字符初始化string对象，但可以将字符赋值给string对象
+
+assign(=)
+s.assign(string);
+s.assign(source, begin, length);
+
+at([])
+string s("2323fds");
+for (int i = 0; i < (int)s.length(); i ++ )
+    cout << s.at(i);
+成员函数at会做范围检查，如果超过范围，会抛出out_of_range异常
+而下标运算符[]不会做范围检查，但仍会报错
+
+append(+)
+append(string, begin, length);
+append(string); // 尾加整个string 
+
+compare(>,<,==,...)
+返回值：-1,1,0
+相较于'+'：可以比较两个串的一部分
+s1.compare(begin1, length1, s2, begin2, length2);
+
+find
+如果找不到返回string::npos,int下-1
+str.find_first_of(s)：查找str中**任意**一个字符第一次出现的位置
+str.find_last_of(s)：查找str中**任意**一个字符最后一次出现的位置
+str.find_first_not_of(s)：查找str中不在s中出现的字符第一次出现的位置
+str.find_last_not_of(s)：查找str中不在s中出现的字符第一次出现的位置
+
+erase
+s.erase(int begin);
+s.erase(int begin, int length);
+
+replace
+s.replace(int begin, int length, string str)
+
+insert
+s1.insert(int begin1, string s2); //在s1的begin1后面插入s2
+s1.insert(int begin1, string s2, int begin2, int length2); // 在s1的begin1后面插入s2.substr(begin2, length2)
+
+s.c_str()
+转换成c语言char*字符串
+s1.c_str(); //返回传统的const char*类字符串，以'\0'结尾
+
+s.data()
+s.data()会返回一个const char*字符串
+
+<sstream>
+字符串处理:istringstream,ostringstream，又称为内存输入输出
+输出流obj.str()
+
+

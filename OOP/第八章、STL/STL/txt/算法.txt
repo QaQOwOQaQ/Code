@@ -1,0 +1,26 @@
+算法就是一个个**函数模板**，大多数在<algorithm>中定义
+
+算法通过迭代器来操纵容器中的元素。
+
+算法可以处理迭代器，也可以处理普通数组
+
+在STL中只要提到了区间，这个区间都是[)左闭右开的形式
+
+对于find(iterator1, iterator2, val)
+如果找不到会返回iterator2，表示整个区间都查找完了还没有找到
+因为我们查找的区间是[iterator1, iterator2)
+
+函数指针可以和函数的名字相匹配
+面向对象应该少用全局变量，否则程序的局部性就不是很好
+
+比较规则的注意事项
+struct 结构名{
+    bool operator()( const T & a1,const T & a2) {
+    //若a1应该在a2前面，则返回true。
+    //否则返回false。 }
+};
+排序规则返回 true，意味着 a1 必须在 a2 前面
+返回 false，意味着 a1 并非必须在 a2 前面
+排序规则的写法，不能造成比较 a1,a2 返回 true 比较 a2,a1 也返回 true 
+否则sort会 runtime error
+比较 a1,a2 返回 false 比较 a2,a1 也返回 false，则没有问题
